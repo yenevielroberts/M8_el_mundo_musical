@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="css/soporte.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <title>Soporte</title>
 </head>
 <body>
@@ -12,29 +13,37 @@
             <h2>El universo musical</h2>
             <a href="index.html">Home</a>
             <a href="sobreNosotros.html">About us</a>
+            <a href="soporte.html">Soporte</a>
             <a href="busqueda.html">Busqueda</a>
             <a href="log_in.html">log in</a>
         </nav>
     </header>
-    <div>
+    <div id="soporte">
         <h1>Soporte</h1>
-        <form>
-            <label for="name_user"> Nombre de usuario</label>
-            <input type="text" name="user_name" id="user_name">
-
-            <label for="problema"> Problema</label>
-            <textarea name="problema" id="problema"></textarea>
-
-            
-            <label for="recomendaciones"> recomendaciones</label>
-            <textarea name="recomendaciones" id="recomendaciones"></textarea>
-
-
-            <input type="submit" name="boton_submit" value="Sign up">
+        <form action="#" method="post">
+            <label for="user_name">Nombre de usuario</label>
+            <input type="text" name="user_name" id="user_name" required>
+        
+            <label for="problema">Problema</label>
+            <textarea name="problema" id="problema" placeholder="Describe tu problema..." required></textarea>
+        
+            <label for="recomendaciones">Recomendaciones</label>
+            <textarea name="recomendaciones" id="recomendaciones" placeholder="¿Tienes sugerencias?"></textarea>
+        
+            <input type="submit" name="boton_submit" value="Enviar">
         </form>
+        
     </div>
     <footer>
-        <address>El mundo musical</address>
+        <div class="footer-content">
+            <p>© 2025 El universo musical</p>
+            <div class="social-icons">
+                <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
     </footer>
 </body>
 </html>

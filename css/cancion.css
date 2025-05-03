@@ -6,9 +6,10 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #121212;
+    background-color: #121212;
     color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-bottom: 100px;
     line-height: 1.6;
 }
 
@@ -43,46 +44,58 @@ nav a:hover {
     color: #00ffe5;
 }
 
-/* Secciones principales */
-section {
-    padding: 2rem;
+/* Contenido principal */
+div {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
 }
 
-section h2 {
-    font-size: 2rem;
+div h2 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    color: #00ffe5;
+}
+
+div h3 {
+    font-size: 1.4rem;
+    margin: 0.5rem 0;
+}
+
+p {
+    font-size: 1rem;
+    margin: 1rem 0;
+}
+
+/* Sección álbum */
+#albumes_po {
+    margin-top: 2rem;
+}
+
+#albumes_po h3 {
+    font-size: 1.5rem;
     margin-bottom: 1rem;
     border-bottom: 2px solid #00ffe5;
     display: inline-block;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.3rem;
 }
 
-section div {
-    display: inline-block;
-    background: #1f1f1f;
-    margin: 1rem;
-    padding: 1rem;
-    border-radius: 10px;
-    text-align: center;
-    width: 160px;
-    box-shadow: 0 4px 8px rgba(0, 255, 229, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-section div:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 255, 229, 0.3);
-}
-
-section h3 {
-    margin-bottom: 0.5rem;
-}
-
-img {
-    width: 100%;
-    height: 160px;
+#albumes_po img {
+    width: 200px;
+    height: 200px;
     object-fit: cover;
+    border-radius: 10px;
+    margin-top: 1rem;
+    background-color: #333;
+}
+
+/* Sección estadísticas */
+#estadisticas {
+    background-color: #1f1f1f;
+    padding: 1rem;
+    margin-top: 2rem;
     border-radius: 8px;
-    background: #333; /* fondo temporal si no hay imagen */
+    box-shadow: 0 2px 6px rgba(0, 255, 229, 0.1);
 }
 
 /*footer*/
@@ -112,5 +125,4 @@ footer {
 .social-icons a:hover {
     color: #00ffe5;
 }
-
 
