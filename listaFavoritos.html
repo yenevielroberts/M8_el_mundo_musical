@@ -15,21 +15,24 @@
             <a href="index.html">Home</a>
             <a href="sobreNosotros.html">About us</a>
             <a href="soporte.html">Soporte</a>
-            <a href="busqueda.html">Busqueda</a>
+            <a href="busqueda.html"><i class="fas fa-search"></i></a>
             <a href="log_in.html">log in</a>
         </nav>
     </header>
 
     <main>
         <h1>Destacados</h1>
-        <div id="favArtistas">
-            <h2>Mis artistas favoritos</h2>
-            <ul id="listaFavArt"></ul>
+        <div id="favContainer">
+            <div id="favArtistas">
+                <h2>Mis artistas favoritos</h2>
+                <ul id="listaFavArt"></ul>
+            </div>
+            <div id="favCanciones">
+                <h2>Mis canciones favoritas</h2>
+                <ul id="listaFavCan"></ul>
+            </div>
         </div>
-        <div id="favCanciones">
-            <h2>Mis canciones favoritas</h2>
-            <ul id="listaFavCan"></ul>
-        </div>
+
 
     </main>
     <footer>
@@ -62,7 +65,7 @@
                 // Si es un artista
                 if (key.startsWith("art_")) {
                     tieneArtistas = true;
-                    const nombre = key.replace("art_","")
+                    const nombre = key.replace("art_", "")
 
                     const li = document.createElement("li");
                     li.innerHTML = `
@@ -75,7 +78,7 @@
                 // Si es una canción
                 else if (key.startsWith("can_")) {
                     tieneCanciones = true;
-                    const nombre = key.replace("can_","")
+                    const nombre = key.replace("can_", "")
 
                     const li = document.createElement("li");
                     li.innerHTML = `

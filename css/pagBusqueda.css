@@ -64,8 +64,14 @@ img {
 }
 
 #recomendados a{
+    text-decoration: none;
     color: white;
 }
+
+#recomendados a:hover{
+    color: #00ffe5;
+}
+
 #recomendados section{
     display: inline-block;
     background: #1f1f1f;
@@ -79,7 +85,8 @@ img {
 }
 
 #recomendados section:hover{
-    color: #00ffe5;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 255, 229, 0.3);
 }
 
 #recomendados h2{
