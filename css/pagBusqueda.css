@@ -67,52 +67,79 @@ h1 {
 }
 
 /*container*/
-p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-}
-img {
-    max-width: 400px;
-    width: 80%;
-    height: auto;
-}
-
 #container {
-    max-width: 600px;
+    max-width: 800px;
     margin: 3rem auto;
+    padding: 0 1rem;
     text-align: center;
-}
+  }
 
-#recomendados a{
-    text-decoration: none;
-    color: white;
-}
+  #search {
+    width: 100%;
+    max-width: 500px;
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: 30px;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    background-color: #1f1f1f;
+    color: #fff;
+  }
 
-#recomendados a:hover{
-    color: #00ffe5;
-}
+  #search::placeholder {
+    color: #aaa;
+  }
 
-#recomendados section{
+  #resultados {
+    list-style: none;
+    padding: 0;
+  }
+
+  #resultados li {
+    background: #1f1f1f;
+    margin: 0.5rem 0;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: left;
+  }
+
+  #recomendados {
+    margin-top: 3rem;
+  }
+
+  #recomendados h2 {
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #00ffe5;
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+
+  #recomendados section {
     display: inline-block;
     background: #1f1f1f;
     margin: 1rem;
     padding: 1rem;
     border-radius: 10px;
-    text-align: center;
     width: 250px;
     box-shadow: 0 4px 8px rgba(0, 255, 229, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+  }
 
-#recomendados section:hover{
+  #recomendados section:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 255, 229, 0.3);
-}
+  }
 
-#recomendados h2{
-    margin-top: 50px;
-    border-bottom: 2px solid #00ffe5;
-}
+  #recomendados a {
+    color: white;
+    text-decoration: none;
+  }
+
+  #recomendados a:hover {
+    color: #00ffe5;
+  }
+
+
 
 /*footer*/
 footer {
@@ -142,3 +169,5 @@ footer {
     color: #00ffe5;
 }
 
+
+ 

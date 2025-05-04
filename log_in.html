@@ -23,9 +23,9 @@
     </header>
     <div id="container-form">
         <h1>Log in</h1>
-        <form>
-            <label for="name_user"> Nombre de usuario</label>
-            <input type="text" name="user_name" id="user_name">
+        <form id="loginForm">
+            <label for="username"> Nombre de usuario</label>
+            <input type="text" name="username" id="username">
             <label for="password_user"> Contraseña</label>
             <input type="password" name="password_user" id="password_user">
             <input type="submit" name="boton_submit" value="Log in">
@@ -43,5 +43,30 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        const form = document.getElementById("loginForm");
+      
+        form.addEventListener("submit", async e => {
+          e.preventDefault();
+      
+          const email = form.username.value;
+          const password = form.password.value;
+      
+          const res = await fetch("/api/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email, password })
+          });
+      
+          const text = await res.text();
+          alert(text);
+      
+          if (res.ok) {
+            // Redirige si login fue exitoso
+            window.location.href = "/perfil_usuario.html";
+          }
+        });
+      </script>
 </body>
 </html>
