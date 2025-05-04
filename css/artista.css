@@ -156,3 +156,20 @@ footer {
     color: #00ffe5;
 }
 
+#favBtn {
+    background-color: #1e1e1e;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    transition: background-color 0.3s;
+}
+
+#favBtn:hover {
+    background-color: #00ffe5;
+    color: black;
+}
+

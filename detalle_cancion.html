@@ -22,6 +22,7 @@
     </header>
     <div>
         <h2>Maps</h2>
+        <button id="favBtn"><i class="fa-regular fa-heart"></i> Agregar a favoritos</button>
         <img src="img/mapsCancion.jpg" id="img_cancion" alt="foto del video maps">
         <section>
             <h3>Genero:</h3>
@@ -105,6 +106,27 @@
             </div>
         </div>
     </footer>
+    <script>
+        const favBtn = document.getElementById('favBtn');
+        const cancion = "Yeah Yeah Yeahs";
+    
+        // Cambia ícono si ya está en favoritos
+        if (localStorage.getItem(cancion)) {
+            favBtn.innerHTML = '<i class="fa-solid fa-heart"></i> En favoritos';
+        }
+    
+        favBtn.addEventListener('click', () => {
+            if (!localStorage.getItem(cancion)) {
+                localStorage.setItem(cancion, true);
+                favBtn.innerHTML = '<i class="fa-solid fa-heart"></i> En favoritos';
+                alert("¡Agregado a favoritos!");
+            } else {
+                localStorage.removeItem(cancion);
+                favBtn.innerHTML = '<i class="fa-regular fa-heart"></i> Agregar a favoritos';
+                alert("Removido de favoritos.");
+            }
+        });
+    </script>
 </body>
 
 </html>
