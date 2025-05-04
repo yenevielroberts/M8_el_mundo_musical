@@ -40,15 +40,15 @@
             <h3>Canciones más populares</h3>
             <ul>
                 <li><a href="detalle_cancion.html">
-                        <h3>Maps</h3>
+                        <p>Maps</p>
                     </a>
                 </li>
                 <li><a href="detalle_cancion.html">
-                        <h3>Heads Will Roll</h3>
+                        <p>Heads Will Roll</p >
                     </a>
                 </li>
                 <li><a href="detalle_cancion.html">
-                        <h3>Burning</h3>
+                        <p>Burning</p>
                     </a>
                 </li>
             </ul>
@@ -59,17 +59,12 @@
                 <li>
                     <h3>Fever To Tell</h3>
                     <img src="img/Yeah_Yeah_Yeahs_-_Fever_to_Tell.png">
-                    <p>Released: </p>
-                    <p>Repoduciones: </p>
-                    <p>Número de canciones</p>
-                </li>
-                <li>
-                    <h3>It's blitz!</h3>
-                    <img src="img/Yeah_Yeah_Yeahs_-_Fever_to_Tell.png">
-                </li>
-                <li>
-                    <h3>Show Your Bones</h3>
-                    <img src="img/Yeah_Yeah_Yeahs_-_Fever_to_Tell.png">
+                    <div id="album_info">
+                        <p><strong>Released:</strong> </p>
+                        <p><strong>Reproduciones: </strong> </p>
+                        <p><strong>Número de canciones: </strong> </p>
+                    </div>
+
                 </li>
             </ul>
         </section>
@@ -87,16 +82,16 @@
     </footer>
     <script>
         const favBtn = document.getElementById('favBtn');
-        const artista =document.getElementById("art_nom").textContent;
-    
+        const artista = document.getElementById("art_nom").textContent;
+
         // Cambia ícono si ya está en favoritos
         if (localStorage.getItem(artista)) {
             favBtn.innerHTML = '<i class="fa-solid fa-heart"></i> En favoritos';
         }
-    
+
         favBtn.addEventListener('click', () => {
             if (!localStorage.getItem(artista)) {
-                localStorage.setItem("art_"+artista, true);
+                localStorage.setItem("art_" + artista, true);
                 favBtn.innerHTML = '<i class="fa-solid fa-heart"></i> En favoritos';
                 alert("¡Agregado a favoritos!");
             } else {
@@ -108,7 +103,7 @@
 
         console.log(localStorage)
     </script>
-    
+
 </body>
 
 </html>

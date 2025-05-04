@@ -1,4 +1,10 @@
 // authServer.js
+
+/*Hay que instalar
+
+npm install pg bcrypt cookie
+
+*/
 const http = require("http");                  // Módulo nativo para crear un servidor HTTP
 const { Pool } = require("pg");                // Cliente de PostgreSQL
 const bcrypt = require("bcrypt");              // Para comparar contraseñas de forma segura

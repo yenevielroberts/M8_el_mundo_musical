@@ -1,5 +1,6 @@
 /* Reset básico */
 * {
+   
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -93,29 +94,48 @@ p {
 }
 
 /* Secciones de canciones y álbumes */
+a{
+    text-decoration: none;
+}
 #canciones_po {
     margin-top: 2rem;
 }
 
-#canciones_po h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    border-bottom: 2px solid #00ffe5;
-    display: inline-block;
-    padding-bottom: 0.5rem;
+#canciones_po p {
+   
+    position: relative;
     color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
     transition: color 0.3s ease;
 }
 
-#canciones_po h3:hover {
-  
-    color: 2px solid #00ffe5;
-   
+#canciones_po p::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -5px;
+    background-color: #00ffe5;
+    transition: width 0.3s ease;
 }
+
+#canciones_po p:hover {
+    color: #00ffe5;
+}
+
+#canciones_po p:hover::after {
+    width: 100%;
+}
+
+/*Álbumes*/
 
 #albumes_po{
 
     margin-top: 2rem;
+    padding: 10px;
+
 }
 
 #albumes_po img{
@@ -126,13 +146,24 @@ p {
     border-radius: 10px;
     margin-bottom: 1rem;
     display: block;
+    float: left;
 }
 
 #albumes_po h3 {
+
     font-size: 1.5rem;
-    margin-bottom: 1rem;
     display: inline-block;
-    padding-bottom: 0.5rem;
+    padding: 0.5rem;
+    color: #00ffe5;
+}
+
+#album_info{
+    margin-top: 5px;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    padding:5px;
 }
 
 ul {
