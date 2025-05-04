@@ -20,12 +20,14 @@
                 <a href="log_in.html">Log in</a>
                 <a href="sobreNosotros.html">About us</a>
                 <a href="soporte.html">Soporte</a>
+                <a href="perfil_usuario.html"><i class="fas fa-user"></i></a>
             </div>
 
         </nav>
     </header>
     <section id="artitas">
-        <h2>Artitas más escuchados</h2>
+        <h2>Artistas más escuchados</h2>
+        <div id="lista-artistas">
         <div>
             <h3>Yeah Yeah Yeahs</h3>
             <a href="detalle_artistas.html"><img src="img/yeah_yeah_yeahs_art.jpg"></a>
@@ -46,9 +48,14 @@
             <h3>Nombre</h3>
             <a href="detalle_artistas.html"><img></a>
         </div>
+    </div>
+        <button id="verMasArtistas" class="arrow-button">
+            <i class="fas fa-chevron-down"></i> <!-- Ícono de flecha -->
+        </button>
     </section>
     <section id="canciones">
         <h2>Canciones populares</h2>
+        <div id="lista-canciones">
         <div>
             <h3>Maps</h3>
             <a href="detalle_cancion.html"><img src="img/mapsCancion.jpg"></a>
@@ -69,9 +76,14 @@
             <h3>Nombre</h3>
             <a href="detalle_cancion.html"><img src=""></a>
         </div>
+    </div>
+        <button id="verMasCanciones" class="arrow-button">
+            <i class="fas fa-chevron-down"></i> <!-- Ícono de flecha -->
+        </button>
     </section>
     <section id="albumes">
         <h2>Álbumes recomendados</h2>
+        <div id="lista-albumes">
         <div>
             <h3>Fever To Tell</h3>
             <img src="img/Yeah_Yeah_Yeahs_-_Fever_to_Tell.png">
@@ -92,6 +104,10 @@
             <h3>Nombre</h3>
             <img src="">
         </div>
+    </div>
+        <button id="verMasAlbumes" class="arrow-button">
+            <i class="fas fa-chevron-down"></i> <!-- Ícono de flecha -->
+        </button>
     </section>
     <footer>
         <div class="footer-content">
@@ -104,6 +120,59 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Función para cargar más artistas
+        document.getElementById("verMasArtistas").addEventListener("click", async () => {
+            const res = await fetch("http://localhost:3000/api/artistas");
+            const artistas = await res.json();
+            const contenedor = document.getElementById("lista-artistas");
+
+            // Por cada artista que recibimos, agregamos un div con el nombre y la imagen
+            artistas.forEach(artista => {
+                const div = document.createElement("div");
+                div.innerHTML = `
+                    <h3>${artista.nombre}</h3>
+                    <a href="detalle_artistas.html"><img src="${artista.imagen_url}" alt="${artista.nombre}"></a>
+                `;
+                contenedor.appendChild(div);
+            });
+        });
+
+        // Función para cargar más canciones
+        document.getElementById("verMasCanciones").addEventListener("click", async () => {
+            const res = await fetch("http://localhost:3000/api/canciones");
+            const canciones = await res.json();
+            const contenedor = document.getElementById("lista-canciones");
+
+            // Por cada canción que recibimos, agregamos un div con el nombre y la imagen
+            canciones.forEach(cancion => {
+                const div = document.createElement("div");
+                div.innerHTML = `
+                    <h3>${cancion.nombre}</h3>
+                    <a href="detalle_cancion.html"><img src="${cancion.imagen_url}" alt="${cancion.nombre}"></a>
+                `;
+                contenedor.appendChild(div);
+            });
+        });
+
+        // Función para cargar más álbumes
+        document.getElementById("verMasAlbumes").addEventListener("click", async () => {
+            const res = await fetch("http://localhost:3000/api/albumes");
+            const albumes = await res.json();
+            const contenedor = document.getElementById("lista-albumes");
+
+            // Por cada álbum que recibimos, agregamos un div con el nombre y la imagen
+            albumes.forEach(album => {
+                const div = document.createElement("div");
+                div.innerHTML = `
+                    <h3>${album.nombre}</h3>
+                    <a href="detalle_album.html"><img src="${album.imagen_url}" alt="${album.nombre}"></a>
+                `;
+                contenedor.appendChild(div);
+            });
+        });
+    </script>
 </body>
 
 </html>
