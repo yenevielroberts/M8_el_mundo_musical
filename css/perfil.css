@@ -47,22 +47,101 @@ nav a:hover {
 
 /*main*/
 
-#user_info{
+/* Perfil general */
+#perfil {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
     background: #1f1f1f;
-    margin: 1rem;
-    padding: 1rem;
-    border-radius: 10px;
-    text-align: center;
-    width: 500px;
-    height: 100%;
-    
-    box-shadow: 0 4px 8px rgba(0, 255, 229, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
 }
 
-#user_info img{
-    width: 150px;
-    height: 150px;
+/* Foto de perfil e info */
+.perfil-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.foto-perfil {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
     border-radius: 50%;
+    margin-right: 1.5rem;
+    border: 3px solid #00ffe5;
+}
+
+.info h2 {
+    margin-bottom: 0.5rem;
+}
+
+.editar-btn {
+    padding: 0.5rem 1rem;
+    background-color: #00bfa6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.editar-btn i {
+    margin-right: 0.4rem;
+}
+
+.editar-btn:hover {
+    background-color: #009f8e;
+}
+
+/* Estadísticas */
+.estadisticas {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.estadisticas div {
+    flex: 1;
+}
+
+.estadisticas i {
+    font-size: 1.5rem;
+    color: #00bfa6;
+    margin-bottom: 0.5rem;
+}
+
+/* Favoritos */
+.favoritos {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.favoritos-box {
+    flex: 1 1 48%;
+    background-color: #333;;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.favoritos-box h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.favoritos-box a {
+    text-decoration: none;
+    color: #00bfa6;
+    font-weight: bold;
+}
+
+.favoritos-box a:hover {
+    text-decoration: underline;
 }
 /*footer*/
 footer {

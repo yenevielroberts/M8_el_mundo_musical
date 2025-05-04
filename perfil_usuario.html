@@ -1,41 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/perfil.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <title>Perfil</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="css/perfil.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <title>Perfil de Usuario</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <h2>El universo musical</h2>
-            <a href="index.html">Home</a>
-            <a href="sobreNosotros.html">About us</a>
-            <a href="soporte.html">Soporte</a>
-            <a href="busqueda.html">Busqueda</a>
-            <a href="log_in.html">log in</a>
-        </nav>
-    </header>
+  <header>
+    <nav>
+      <h2>El universo musical</h2>
+      <a href="index.html">Home</a>
+      <a href="sobreNosotros.html">About us</a>
+      <a href="soporte.html">Soporte</a>
+      <a href="busqueda.html">Busqueda</a>
+      <a href="log_in.html">Log in</a>
+    </nav>
+  </header>
 
-    <main>
-        <div id="user_info">
-            <img src="img/imgMusic.avif" alt="foto de perfil">
-            <h2>Nombre</h2>
+  <main>
+    <section id="perfil">
+      <div class="perfil-header">
+        <img src="img/imgMusic.avif" alt="Foto de perfil" class="foto-perfil"/>
+        <div class="info">
+          <h2 id="nombreUsuario">Nombre de Usuario</h2>
+          <button class="editar-btn"><i class="fas fa-user-edit"></i> Editar perfil</button>
+        </div>
+      </div>
 
+      <div class="estadisticas">
+        <div>
+          <i class="fas fa-heart"></i>
+          <p><strong id="totalFavs">0</strong><br>Favoritos</p>
         </div>
-    </main>
-    <footer>
-        <div class="footer-content">
-            <p>© 2025 El universo musical</p>
-            <div class="social-icons">
-                <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            </div>
+        <div>
+          <i class="fas fa-music"></i>
+          <p><strong id="totalCanciones">0</strong><br>Canciones</p>
         </div>
-    </footer>
+        <div>
+          <i class="fas fa-user"></i>
+          <p><strong id="totalArtistas">0</strong><br>Artistas</p>
+        </div>
+      </div>
+
+      <div class="favoritos">
+        <div class="favoritos-box">
+          <h3><i class="fas fa-headphones-alt"></i> Canciones Favoritas</h3>
+          <a href="listaFavoritos.html">Ver lista</a>
+        </div>
+        <div class="favoritos-box">
+          <h3><i class="fas fa-users"></i> Artistas Favoritos</h3>
+          <a href="listaFavoritos.html">Ver lista</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>© 2025 El universo musical</p>
+      <div class="social-icons">
+        <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nombreUsuario = localStorage.getItem("usuario") || "Nombre de Usuario";
+    document.getElementById("nombreUsuario").textContent = nombreUsuario;
+
+    // Simular conteo de favoritos
+    let total = localStorage.length;
+    let canciones = 0;
+    let artistas = 0;
+
+    for (let i = 0; i < total; i++) {
+      const key = localStorage.key(i);
+      if (key.startsWith("can_")) canciones++;
+      else if (key.startsWith("art_")) artistas++;
+    }
+
+    document.getElementById("totalFavs").textContent = canciones + artistas;
+    document.getElementById("totalCanciones").textContent = canciones;
+    document.getElementById("totalArtistas").textContent = artistas;
+  </script>
 </body>
 </html>
