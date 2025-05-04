@@ -107,8 +107,28 @@ nav a {
     transition: color 0.3s ease;
 }
 
+nav a {
+    display: flex;
+    width: 100px;
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    justify-content: center;
+    align-items: center;
+}
+
 nav a:hover {
     color: #00ffe5;
+}
+
+#enlancesNav{
+    width: 600px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin: 20px;
 }
 
 /*footer*/
