@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Favoritos</title>
     <link rel="stylesheet" href="css/listaFavoritos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body>
     <header>
         <nav>
@@ -19,8 +21,16 @@
     </header>
 
     <main>
-        <h1>Mis artistas favoritos</h1>
-        <ul id="listaFavoritos"></ul>
+        <h1>Destacados</h1>
+        <div id="favArtistas">
+            <h2>Mis artistas favoritos</h2>
+            <ul id="listaFavArt"></ul>
+        </div>
+        <div id="favCanciones">
+            <h2>Mis canciones favoritas</h2>
+            <ul id="listaFavCan"></ul>
+        </div>
+
     </main>
     <footer>
         <div class="footer-content">
@@ -35,34 +45,75 @@
     </footer>
 
     <script>
-        const lista = document.getElementById("listaFavoritos");
-    
+        const listaArt = document.getElementById("listaFavArt");
+        const listaCan = document.getElementById("listaFavCan");
+
         function renderFavoritos() {
-            lista.innerHTML = ""; // Limpiar lista
-            if (localStorage.length === 0) {
-                lista.innerHTML = "<li>No tienes favoritos aún.</li>";
-                return;
-            }
-    
+            listaArt.innerHTML = "";
+            listaCan.innerHTML = "";
+
+            let tieneArtistas = false;
+            let tieneCanciones = false;
+
             for (let i = 0; i < localStorage.length; i++) {
-                const artista = localStorage.key(i);
-    
-                const li = document.createElement("li");
-                li.innerHTML = `
-                    <a href="artista.html?nombre=${encodeURIComponent(artista)}">${artista}</a>
-                    <button onclick="eliminarFavorito('${artista}')">Eliminar</button>
-                `;
-                lista.appendChild(li);
+                const key = localStorage.key(i);
+                const valor = localStorage.getItem(key);
+
+                // Si es un artista
+                if (key.startsWith("art_")) {
+                    tieneArtistas = true;
+                    const nombre = key.replace("art_","")
+
+                    const li = document.createElement("li");
+                    li.innerHTML = `
+                        <a href="detalle_artistas.html?nombre=${encodeURIComponent(nombre)}">${nombre}</a>
+                        <button onclick="eliminarFavorito('${key}')">Eliminar</button>
+                    `;
+                    listaArt.appendChild(li);
+                }
+
+                // Si es una canción
+                else if (key.startsWith("can_")) {
+                    tieneCanciones = true;
+                    const nombre = key.replace("can_","")
+
+                    const li = document.createElement("li");
+                    li.innerHTML = `
+                        <a href="detalle_cancion.html?nombre=${encodeURIComponent(nombre)}">${nombre}</a>
+                        <button onclick="eliminarFavorito('${key}')">Eliminar</button>
+                    `;
+                    listaCan.appendChild(li);
+                }
+            }
+
+            // Mensaje si no hay favoritos
+            if (!tieneArtistas) {
+                listaArt.innerHTML = "<li>No tienes artistas favoritos aún.</li>";
+            }
+            if (!tieneCanciones) {
+                listaCan.innerHTML = "<li>No tienes canciones favoritas aún.</li>";
             }
         }
-    
-        function eliminarFavorito(nombre) {
-            localStorage.removeItem(nombre);
-            renderFavoritos(); // Vuelve a mostrar la lista actualizada
+
+        function eliminarFavorito(clave) {
+            const selector = clave.startsWith("art_") ? listaArt : listaCan;
+            const items = selector.querySelectorAll("li");
+
+            items.forEach((li) => {
+                if (li.textContent.includes(clave.replace("art_", "").replace("can_", ""))) {
+                    li.classList.add("fade-out");
+                    setTimeout(() => {
+                        localStorage.removeItem(clave);
+                        renderFavoritos();
+                    }, 500); // Espera a que termine la animación
+                }
+            });
         }
-    
+
         renderFavoritos();
     </script>
-    
+
+
 </body>
+
 </html>

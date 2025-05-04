@@ -1,28 +1,79 @@
-body {
-    font-family: Arial, sans-serif;
+/* Reset básico */
+* {
     margin: 0;
-    background-color: #f9f9f9;
-}
-
-main {
-    padding: 2rem;
-}
-
-ul {
-    list-style: none;
     padding: 0;
+    box-sizing: border-box;
 }
 
-li {
-    margin: 1rem 0;
-    font-size: 1.2rem;
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-bottom: 100px;
+    line-height: 1.6;
 }
 
-a {
+/* Header y navegación */
+header {
+    background: #1e1e1e;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav h2 {
+    font-size: 1.8rem;
+    color: #00ffe5;
+}
+
+nav a {
+    color: #ffffff;
     text-decoration: none;
-    color: #1e1e1e;
+    margin-left: 1.5rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
-a:hover {
+nav a:hover {
+    color: #00ffe5;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+
+/*footer*/
+footer {
+    background: #1e1e1e;
+    padding: 2rem;
+    text-align: center;
+    color: #aaa;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.social-icons {
+    margin-top: 1rem;
+}
+
+.social-icons a {
+    color: #aaa;
+    margin: 0 0.5rem;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
     color: #00ffe5;
 }

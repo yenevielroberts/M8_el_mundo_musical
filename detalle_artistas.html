@@ -13,12 +13,13 @@
 <body>
     <header>
         <nav>
-            <h2>El universo musical</h2>
+            <h2 id="art_nom">El universo musical</h2>
             <a href="index.html">Home</a>
             <a href="sobreNosotros.html">About us</a>
 
             <a href="busqueda.html">Busqueda</a>
             <a href="log_in.html">log in</a>
+            <a href="perfil_usuario.html">Perfil</a>
         </nav>
     </header>
     <div>
@@ -83,7 +84,7 @@
     </footer>
     <script>
         const favBtn = document.getElementById('favBtn');
-        const artista = "Yeah Yeah Yeahs";
+        const artista =document.getElementById("art_nom").textContent;
     
         // Cambia ícono si ya está en favoritos
         if (localStorage.getItem(artista)) {
@@ -92,7 +93,7 @@
     
         favBtn.addEventListener('click', () => {
             if (!localStorage.getItem(artista)) {
-                localStorage.setItem(artista, true);
+                localStorage.setItem("art_"+artista, true);
                 favBtn.innerHTML = '<i class="fa-solid fa-heart"></i> En favoritos';
                 alert("¡Agregado a favoritos!");
             } else {
@@ -101,6 +102,8 @@
                 alert("Removido de favoritos.");
             }
         });
+
+        console.log(localStorage)
     </script>
     
 </body>
