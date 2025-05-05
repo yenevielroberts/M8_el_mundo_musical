@@ -31,60 +31,60 @@ const parametro = getParam('name');//nombre del artista
 
 //Obtengo los artistas
 fetch(`/api/artists?name=${parametro}`)
-.then(response=> response.json())
-.then(data=>{
-    const contenedor = document.getElementById("container")
-    const nombre=document.getElementById("art_nom");
-    const bio=document.getElementById("bio");
-    const img=document.getElementById("img");
+    .then(response => response.json())
+    .then(data => {
+        const contenedor = document.getElementById("container")
+        const nombre = document.getElementById("art_nom");
+        const bio = document.getElementById("bio");
+        const img = document.getElementById("img");
 
-    data.forEach(artista=>{
-        nombre.textContent=artista.stage_name;
-        bio.textContent=artista.biografia;
-        img.setAttribute("src",`${artista.image}`)
-        contenedor.append(nombre,bio);
-    });
-})
-.catch(error=>{
-    console.error('Error al obtener los artistas:', error);
-})
+        data.forEach(artista => {
+            nombre.textContent = artista.stage_name;
+            bio.textContent = artista.biografia;
+            img.setAttribute("src", `${artista.image}`)
+            contenedor.append(nombre, bio);
+        });
+    })
+    .catch(error => {
+        console.error('Error al obtener los artistas:', error);
+    })
 
 //Obtengo las canciones
 fetch(`/api/song?artist_name=${parametro}`)
-.then(response => response.json())
-.then(data =>{
-    const listaCanciones=document.getElementById("lista-canciones")
+    .then(response => response.json())
+    .then(data => {
+        const listaCanciones = document.getElementById("lista-canciones")
 
-    data.forEach(cancion =>{
-        const li=document.createElement("li")
-        li.innerHTML`<a href="detalle_cancion.html?name=${cancion.name}">
+        data.forEach(cancion => {
+            const li = document.createElement("li")
+            li.innerHTML`<a href="detalle_cancion.html?name=${cancion.name}">
                 <p>${cancion.name}</p>
             </a>`;
-        listaCanciones.appendChild(li)
+            listaCanciones.appendChild(li)
+        })
     })
-})
-.catch(error =>{
-    console.log('Error al obtener los canciones:', error)
-})
+    .catch(error => {
+        console.log('Error al obtener los canciones:', error)
+    })
 
-  //Obtengo los albumes
-  fetch(`/api/albums?artist_name=${parametro}`)
-.then(response => response.json())
-.then(data =>{
-    const listaalbumes=document.getElementById("lista-albumes")
+//Obtengo los albumes
+fetch(`/api/albums?artist_name=${parametro}`)
+    .then(response => response.json())
+    .then(data => {
+        const listaalbumes = document.getElementById("lista-albumes")
 
-    data.forEach(album =>{
-        const li=document.createElement("li")
-        li.innerHTML`<h3>${album.name}</h3>
+        data.forEach(album => {
+            const li = document.createElement("li")
+            li.innerHTML`<h3>${album.name}</h3>
                     <img src="${album.image}">
                     <div id="album_info">
                         <p><strong>Released:</strong>${album.release_date} </p>
                         <p><strong>Número de canciones: </strong>${album.number_songs}</p>
                     </div>`;
-        listaalbumes.appendChild(li)
+            listaalbumes.appendChild(li)
+        })
     })
-})
-.catch(error =>{
-    console.log('Error al obtener los canciones:', error)
-})
+    .catch(error => {
+        console.log('Error al obtener los canciones:', error)
+    })
 

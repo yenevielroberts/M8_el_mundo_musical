@@ -6,7 +6,7 @@ fetch(`/api/artists?limit=5`)
 
         data.forEach(artista => {
             const div = document.createElement("div")
-            div.innerHTML`<h3>${artista.stage_name}</h3>
+            div.innerHTML=`<h3>${artista.stage_name}</h3>
             <a href="detalle_artistas.html?name=${artista.stage_name}"><img src="${artista.image}"></a>`;
             contenedor.appendChild(div)
         })
@@ -24,7 +24,7 @@ fetch(`/api/songs?limit=5`)
 
         data.forEach(cancion => {
             const div = document.createElement("div")
-            div.innerHTML`<h3>${cancion.name}</h3>
+            div.innerHTML=`<h3>${cancion.name}</h3>
             <a href="detalle_cancion.html?name=${cancion.name}"><img src="${cancion.image}"></a>`;
             contenedor.appendChild(div)
         })
@@ -43,8 +43,8 @@ fetch(`/api/albums?limit=5`)
 
         data.forEach(album => {
             const div = document.createElement("div")
-            div.innerHTML`<h3>${album.title}</h3>
-            <a href="detalle_cancion.html?name=${album.name}"><img src="${album.image}"></a>`;
+            div.innerHTML=`<h3>${album.title}</h3>
+           <img src="${album.image}">`;
             contenedor.appendChild(div)
         })
     })
@@ -64,8 +64,7 @@ document.getElementById("verMasArtistas").addEventListener("click", async () => 
         const div = document.createElement("div");
         div.innerHTML = `
                 <h3>${artista.stage_name}</h3>
-                <p>Nombre real:${artista.real_name} </p<
-                <a href="detalle_artistas.html?name=${artista.stage_name}"><img src="${artista.imagen_url}" alt="${artista.stage_name}"></a>
+                <a href="detalle_artistas.html?name=${artista.stage_name}"><img src="${artista.image}" alt="${artista.stage_name}"></a>
             `;
         contenedor.appendChild(div);
     });
@@ -81,8 +80,8 @@ document.getElementById("verMasCanciones").addEventListener("click", async () =>
     canciones.forEach(cancion => {
         const div = document.createElement("div");
         div.innerHTML = `
-                <h3>${cancion.nombre}</h3>
-                <a href="detalle_cancion.html"><img src="${cancion.imagen_url}" alt="${cancion.nombre}"></a>
+                <h3>${cancion.name}</h3>
+                <a href="detalle_cancion.html"><img src="${cancion.imagen}" alt="${cancion.name}"></a>
             `;
         contenedor.appendChild(div);
     });
@@ -99,7 +98,7 @@ document.getElementById("verMasAlbumes").addEventListener("click", async () => {
         const div = document.createElement("div");
         div.innerHTML = `
                 <h3>${album.nombre}</h3>
-                <a href="detalle_album.html"><img src="${album.imagen_url}" alt="${album.nombre}"></a>
+                <img src="${album.imagen_url}" alt="${album.nombre}">
             `;
         contenedor.appendChild(div);
     });
