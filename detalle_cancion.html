@@ -8,114 +8,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="scripts/header.js" defer></script>
     <script src="scripts/footer.js" defer></script>
+    <script src="scripts/scriptCancion.js" defer></script>
     <title>Canción</title>
 </head>
 
 <body>
     <header id="header">
     </header>
-    <div>
-        <h2 id="can_nom">Maps</h2>
+    <div id="container">
+        <h2 id="can_nom"></h2>
         <button id="favBtn"><i class="fa-regular fa-heart"></i> Agregar a favoritos</button>
-        <img src="img/mapsCancion.jpg" id="img_cancion" alt="foto del video maps">
-        <section>
-            <h3>Genero:</h3>
-            <p>Alternative/Indie, Rock</p>
-            <h3>Artista:</h3>
-            <a href="detalle_artistas.html">Yeah Yeah Yeahs</a>
-            <h3>Released: 2003</h3><br><br>
-            <h3 id="historia_titu">Historia</h3>
-            <p>Todo empezó en entre el 2001 y 2002, cuando el trío neoyorquino lanzó dos EP’s; uno homónimo y otro
-                titulado Machine. El éxito llegó muy rápido para la banda provocando así que tuvieran que salir de gira
-                para promocionar sus canciones. En dicho tour, los Yeah Yeah Yeahs fueron acompañados por Liars, una
-                banda australiana liderada por Angus Andrew, quien tiempo después se hizo novio de Karen O.</p>
-            <p>El grupo conformado también por el guitarrista Nick Zinner y el baterista Brian Chase, además de tener
-                canciones bien ‘garage rock’, tenía una muy melancólica que marcó a toda una generación en México que,
-                sin entender bien su letra, pensaron que se trataba de amor y hasta empezaron a dedicarla a sus parejas.
-            </p>
-            <p>¿Ya sabes de cuál hablamos? Sí, de ‘Maps’. Esa rola que te hace mover la cabeza y las manos como si
-                estuvieras tocando la batería. </p>
-
-            <h3>Letra: </h3>
-            <p>
-                OverviewLyricsListenArtists
-                Lyrics
-                Pack up
-                I'm straight
-                Enough
-                Oh, say, say, say
-                Oh, say, say, say
-                Oh, say, say, say
-                Oh, say, say, say
-                Oh, say, say, say
-                Wait, they don't love you like I love you
-                Wait, they don't love you like I love you
-                Maps
-                Wait, they don't love you like I love you
-                Made off
-                Don't stray
-                Well, my kind's your kind
-                I'll stay the same
-                Pack up
-                Don't stray
-                Oh, say, say, say
-                Oh, say, say, say
-                Wait, they don't love you like I love you
-                Wait, they don't love you like I love you
-                Maps
-                Wait, they don't love you like I love you
-                Wait, they don't love you like I love you
-                Maps
-                Wait, they don't love you like I love you
-                Wait, they don't love you like I love you
-                Wait, they don't love you like I love you
-                Maps
-                Wait, they don't love you like I love you
-                Wait, they don't love you like I love you
-                Maps
-                Wait, they don't love you like I love you
-                Source: LyricFind
-            </p>
+        <img src="" id="img_cancion" alt="foto del video maps">
+        <section id="info_can">
         </section>
 
         <section id="albumes_po">
-            <h3>Álbum: Fever To Tell</h3>
-            <img src="img/Yeah_Yeah_Yeahs_-_Fever_to_Tell.png">
         </section>
         <section id="estadisticas">
-            <h2>Estadistcas</h2>
-            <ul>
-                <li>Número de repoduciones:</li>
-            </ul>
         </section>
     </div>
     <footer id="footer">
     </footer>
-    <script>
-        const favBtn = document.getElementById('favBtn');
-        const cancion =document.getElementById("can_nom").textContent;
-
-        console.log(cancion)
-    
-        // Cambia ícono si ya está en favoritos
-        if (localStorage.getItem(cancion)) {
-            favBtn.innerHTML = '<i class="fa-solid fa-heart"></i> En favoritos';
-        }
-    
-        favBtn.addEventListener('click', () => {
-            if (!localStorage.getItem(cancion)) {
-                localStorage.setItem("can_"+cancion, true);
-                favBtn.innerHTML = '<i class="fa-solid fa-heart"></i> En favoritos';
-                alert("¡Agregado a favoritos!");
-            } else {
-                localStorage.removeItem(cancion);
-                favBtn.innerHTML = '<i class="fa-regular fa-heart"></i> Agregar a favoritos';
-                alert("Removido de favoritos.");
-            }
-        });
-
-        console.log(localStorage)
-    </script>
 </body>
 
 </html>

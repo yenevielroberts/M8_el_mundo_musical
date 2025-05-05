@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="scripts/header.js" defer></script>
     <script src="scripts/footer.js" defer></script>
+    <script src="scripts/scriptArtista.js" defer></script>
 
     <title>Artita</title>
 </head>
@@ -15,75 +16,25 @@
 <body>
     <header id="header">
     </header>
-    <div>
-        <h2 id="art_nom">Yeah Yeah Yeahs</h2>
+    <div id="container">
+        <h2 id="art_nom"></h2>
         <button id="favBtn"><i class="fa-regular fa-heart"></i> Agregar a favoritos</button>
-        <img src="img/yeah_yeah_yeahs_art.jpg">
+        <img src="" id="img">
         <h3>Biografía</h3>
-        <p>Yeah Yeah Yeahs are an American indie rock band formed in New York City in 2000. The group is composed of
-            vocalist and pianist Karen O (born Karen Lee Orzolek), guitarist and keyboardist Nick Zinner, and drummer
-            Brian Chase.[4] They are complemented in live performances by second guitarist David Pajo (formerly of Slint
-            and Tortoise), who joined as a touring member in 2009 and replaced Imaad Wasif, who had previously held the
-            role. According to a 2004 interview that aired during their appearance on ABC's Live from Central Park
-            SummerStage series, the band's name was taken from modern New York City vernacular.[5] </p>
+        <p id="Biografía"></p>
         <section id="canciones_po">
             <h3>Canciones más populares</h3>
-            <ul>
-                <li><a href="detalle_cancion.html">
-                        <p>Maps</p>
-                    </a>
-                </li>
-                <li><a href="detalle_cancion.html">
-                        <p>Heads Will Roll</p >
-                    </a>
-                </li>
-                <li><a href="detalle_cancion.html">
-                        <p>Burning</p>
-                    </a>
-                </li>
+            <ul id="lista-canciones">
             </ul>
         </section>
         <section id="albumes_po">
             <h3>Álbumes más populares</h3>
-            <ul>
-                <li>
-                    <h3>Fever To Tell</h3>
-                    <img src="img/Yeah_Yeah_Yeahs_-_Fever_to_Tell.png">
-                    <div id="album_info">
-                        <p><strong>Released:</strong> </p>
-                        <p><strong>Reproduciones: </strong> </p>
-                        <p><strong>Número de canciones: </strong> </p>
-                    </div>
-
-                </li>
+            <ul id="lista-albumes">
             </ul>
         </section>
     </div>
     <footer id="footer">
     </footer>
-    <script>
-        const favBtn = document.getElementById('favBtn');
-        const artista = document.getElementById("art_nom").textContent;
-
-        // Cambia ícono si ya está en favoritos
-        if (localStorage.getItem(artista)) {
-            favBtn.innerHTML = '<i class="fa-solid fa-heart"></i> En favoritos';
-        }
-
-        favBtn.addEventListener('click', () => {
-            if (!localStorage.getItem(artista)) {
-                localStorage.setItem("art_" + artista, true);
-                favBtn.innerHTML = '<i class="fa-solid fa-heart"></i> En favoritos';
-                alert("¡Agregado a favoritos!");
-            } else {
-                localStorage.removeItem(artista);
-                favBtn.innerHTML = '<i class="fa-regular fa-heart"></i> Agregar a favoritos';
-                alert("Removido de favoritos.");
-            }
-        });
-
-        console.log(localStorage)
-    </script>
 
 </body>
 
