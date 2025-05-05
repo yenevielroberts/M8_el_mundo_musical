@@ -50,6 +50,8 @@ fetch(`/api/songs?name=${parametro}`)
             <p>${cancion.genre}</p>
             <h3>Artista:</h3>
             <a href="detalle_artistas.html">${cancion.artist_name}</a>
+            <a href="${cancion.audio}">Escuchar</a>
+            <a href="detalle_artistas.html">${cancion.artist_name}</a>
             <h3>Released:${cancion.release_date}</h3><br><br>
             <h3 id="historia_titu">Historia</h3>
             <p>${cancion.story} </p>
